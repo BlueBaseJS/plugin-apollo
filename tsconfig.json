@@ -7,7 +7,9 @@
 		"baseUrl": ".",
 		"paths": {
 			"*": ["typings/*"]
-		}
+		},
+		"jsx": "react", // Added to remove TS error "Cannot use JSX unless '--jsx' flag is provided"
+		"lib": [ "es2015" ]
 	},
 	"include": ["src/**/*.ts"],
 	"exclude": ["node_modules/**", "**/*.spec.ts", "**/*.test.ts", "**/*.stories.ts"],

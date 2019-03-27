@@ -32,67 +32,7 @@ This plugin registers following components in the Component registry, so they ca
 
   This plugin provides complete flexibility to modify the apollo client. This is done by providing various filter hooks at different stages of store initialization.
 
-### bluerain.system.app
-
-  This hook gives the ability to modify the main System App component that gets wrapped in Redux's Provider.
-
-#### **Parameters:**
-
-  | Name      | Type            | Description                    |
-  | --------- | --------------- | ------------------------------ |
-  | SystemApp | React.Component | The main system app component. |
-
-#### **Returns:**
-
-  | Name      | Type            | Description                    |
-  | --------- | --------------- | ------------------------------ |
-  | SystemApp | React.Component | The main system app component. |
-
-#### **Example:**
-
-  This example wraps the System App with a Apollo provider by using a `replaceReduxProvider` higher order component (HOC).
-
-  ```javascript
-  import BB from '@bluebase/core';
-  import withApolloProvider from './withApolloProvider';
-  
-  'bluerain.system.app': App => {
-      return withApolloProvider(App, client);
-    }
-  ```
-
-### plugin.apollo.config
-
-  This hook gives the ability to modify the plugin configurations.
-
-  **Parameters:**
-
-  | Name   | Type   | Description           |
-  | ------ | ------ | --------------------- |
-  | config | Object | Plugin configurations |
-
-  **Returns:**
-
-  | Name   | Type   | Description           |
-  | ------ | ------ | --------------------- |
-  | config | Object | Plugin configurations |
-
-  **Example:**
-
-  This example activates subscriptions in apollo client.
-
-  ```javascript
-  import BB from '@bluebase/core';
-  
-  BR.Filters.add(
-      'plugin.apollo.config',
-      function ActivateApolloSubscriptions(configs) {
-          return Object.assign({}, configs, {
-              subscriptions: true
-          })
-      }
-  );
-  ```
+### bluebase.boot.end
 
 ### plugin.apollo.links
 
@@ -121,10 +61,6 @@ This plugin registers following components in the Component registry, so they ca
 ### plugin.apollo.cache
 
    This Hook clears cache of the of Apollo store
-
-### plugin.system.initialized
-
-   This Hook Create apollo client when all plugins and apps are initialized
 
 ## API
 
