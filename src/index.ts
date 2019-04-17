@@ -9,7 +9,7 @@ import withApolloProvider from './withApolloProvider';
 
 export default createPlugin({
 	description: '🌍 A BlueBase Plugin that integrates Apollo GraphQL Client',
-	key: '@bluebase/plugin-untitled',
+	key: 'plugin-apollo',
 	name: 'Apollo Plugin',
 	version: '1.0.0',
 
