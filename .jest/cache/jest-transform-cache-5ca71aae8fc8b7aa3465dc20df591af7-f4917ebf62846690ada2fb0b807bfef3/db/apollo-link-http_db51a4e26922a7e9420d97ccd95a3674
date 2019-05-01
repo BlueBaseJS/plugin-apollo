@@ -1,0 +1,17 @@
+3bbaa11b7b0b7b8fef6ea3c655521b54
+"use strict";
+
+jest.mock('./PLAY SOUND', function () {
+  return jest.fn().mockImplementation(function () {
+    return {
+      playSoundFile: mockPlaySoundFile
+    };
+  });
+});
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var mock = jest.fn();
+exports.default = mock;
+var mockPlaySoundFile = jest.fn();
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9hcG9sbG8vcGx1Z2luLWFwb2xsby9fX21vY2tzX18vYXBvbGxvLWxpbmstaHR0cC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQU1BLElBQUksQ0FBQyxJQUFMLENBQVUsY0FBVixFQUEwQixZQUFLO0FBQzdCLFNBQU8sSUFBSSxDQUFDLEVBQUwsR0FBVSxrQkFBVixDQUE2QixZQUFLO0FBQ3ZDLFdBQU87QUFBQyxNQUFBLGFBQWEsRUFBRTtBQUFoQixLQUFQO0FBQ0QsR0FGTSxDQUFQO0FBR0QsQ0FKRDs7OztBQU5BLElBQU0sSUFBSSxHQUFHLElBQUksQ0FBQyxFQUFMLEVBQWI7QUFFQSxPQUFBLENBQUEsT0FBQSxHQUFlLElBQWY7QUFHQSxJQUFNLGlCQUFpQixHQUFHLElBQUksQ0FBQyxFQUFMLEVBQTFCIiwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgbW9jayA9IGplc3QuZm4oKVxuXG5leHBvcnQgZGVmYXVsdCBtb2NrO1xuXG5cbmNvbnN0IG1vY2tQbGF5U291bmRGaWxlID0gamVzdC5mbigpO1xuamVzdC5tb2NrKCcuL1BMQVkgU09VTkQnLCAoKSA9PiB7XG4gIHJldHVybiBqZXN0LmZuKCkubW9ja0ltcGxlbWVudGF0aW9uKCgpID0+IHtcbiAgICByZXR1cm4ge3BsYXlTb3VuZEZpbGU6IG1vY2tQbGF5U291bmRGaWxlfTtcbiAgfSk7XG59KTsiXX0=

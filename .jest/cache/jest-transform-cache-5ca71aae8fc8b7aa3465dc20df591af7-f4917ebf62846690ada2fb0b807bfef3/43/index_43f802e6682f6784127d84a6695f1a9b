@@ -1,0 +1,93 @@
+419004d3c1f3a72dd4fc46fcc1b44fb0
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var tslib_1 = require("tslib");
+
+var react_apollo_1 = require("react-apollo");
+
+var core_1 = require("@bluebase/core");
+
+var apollo_client_1 = require("apollo-client");
+
+var apollo_link_1 = require("apollo-link");
+
+var apollo_link_http_1 = require("apollo-link-http");
+
+var apollo_cache_inmemory_1 = require("apollo-cache-inmemory");
+
+var withApolloProvider_1 = tslib_1.__importDefault(require("./withApolloProvider"));
+
+var console = require("console");
+
+exports.default = core_1.createPlugin({
+  description: '🌍 A BlueBase Plugin that integrates Apollo GraphQL Client',
+  key: 'plugin-apollo',
+  name: 'Apollo Plugin',
+  version: '1.0.0',
+  components: {
+    ApolloConsumer: react_apollo_1.ApolloConsumer,
+    GraphqlMutation: react_apollo_1.Mutation,
+    GraphqlQuery: react_apollo_1.Query,
+    GraphqlSubscription: react_apollo_1.Subscription
+  },
+  defaultConfigs: {
+    'plugin.apollo.clientOptions': {},
+    'plugin.apollo.httpLinkOptions': {}
+  },
+  filters: {
+    'bluebase.boot.end': function bluebaseBootEnd(bootOptions, _ctx, BB) {
+      var httpLinkOptions, clientOptions, httpLink, links, cache, client;
+      return _regenerator.default.async(function bluebaseBootEnd$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              httpLinkOptions = BB.Configs.getValue('plugins.apollo.httpLinkOptions');
+              clientOptions = BB.Configs.getValue('plugins.apollo.clientOptions');
+
+              if (httpLinkOptions) {
+                _context.next = 4;
+                break;
+              }
+
+              throw new Error('HTTP Link URI not provided to Apollo');
+
+            case 4:
+              httpLink = new apollo_link_http_1.HttpLink(httpLinkOptions);
+              _context.next = 7;
+              return _regenerator.default.awrap(BB.Filters.run('plugin.apollo.links', [httpLink]));
+
+            case 7:
+              links = _context.sent;
+              _context.next = 10;
+              return _regenerator.default.awrap(BB.Filters.run('plugin.apollo.cache', new apollo_cache_inmemory_1.InMemoryCache()));
+
+            case 10:
+              cache = _context.sent;
+              console.log("clientoptionssss", httpLinkOptions);
+              client = new apollo_client_1.ApolloClient((0, _extends2.default)({
+                cache: cache,
+                link: apollo_link_1.ApolloLink.from(links)
+              }, clientOptions));
+              BB.Components.addHocs('BlueBaseContent', withApolloProvider_1.default(client));
+              return _context.abrupt("return", bootOptions);
+
+            case 15:
+            case "end":
+              return _context.stop();
+          }
+        }
+      });
+    }
+  }
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9hcG9sbG8vcGx1Z2luLWFwb2xsby9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFBQSxJQUFBLGNBQUEsR0FBQSxPQUFBLENBQUEsY0FBQSxDQUFBOztBQUNBLElBQUEsTUFBQSxHQUFBLE9BQUEsQ0FBQSxnQkFBQSxDQUFBOztBQUVBLElBQUEsZUFBQSxHQUFBLE9BQUEsQ0FBQSxlQUFBLENBQUE7O0FBQ0EsSUFBQSxhQUFBLEdBQUEsT0FBQSxDQUFBLGFBQUEsQ0FBQTs7QUFDQSxJQUFBLGtCQUFBLEdBQUEsT0FBQSxDQUFBLGtCQUFBLENBQUE7O0FBQ0EsSUFBQSx1QkFBQSxHQUFBLE9BQUEsQ0FBQSx1QkFBQSxDQUFBOztBQUNBLElBQUEsb0JBQUEsR0FBQSxPQUFBLENBQUEsZUFBQSxDQUFBLE9BQUEsQ0FBQSxzQkFBQSxDQUFBLENBQUE7O0FBQ0EsSUFBQSxPQUFBLEdBQUEsT0FBQSxDQUFBLFNBQUEsQ0FBQTs7QUFFQSxPQUFBLENBQUEsT0FBQSxHQUFlLE1BQUEsQ0FBQSxZQUFBLENBQWE7QUFDM0IsRUFBQSxXQUFXLEVBQUUsNERBRGM7QUFFM0IsRUFBQSxHQUFHLEVBQUUsZUFGc0I7QUFHM0IsRUFBQSxJQUFJLEVBQUUsZUFIcUI7QUFJM0IsRUFBQSxPQUFPLEVBQUUsT0FKa0I7QUFNM0IsRUFBQSxVQUFVLEVBQUU7QUFDWCxJQUFBLGNBQWMsRUFBZCxjQUFBLENBQUEsY0FEVztBQUVYLElBQUEsZUFBZSxFQUFFLGNBQUEsQ0FBQSxRQUZOO0FBR1gsSUFBQSxZQUFZLEVBQUUsY0FBQSxDQUFBLEtBSEg7QUFJWCxJQUFBLG1CQUFtQixFQUFFLGNBQUEsQ0FBQTtBQUpWLEdBTmU7QUFZM0IsRUFBQSxjQUFjLEVBQUU7QUFDZixtQ0FBK0IsRUFEaEI7QUFFZixxQ0FBaUM7QUFGbEIsR0FaVztBQWdCM0IsRUFBQSxPQUFPLEVBQUU7QUFDUix5QkFBcUIseUJBQU8sV0FBUCxFQUFpQyxJQUFqQyxFQUE0QyxFQUE1QztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDZCxjQUFBLGVBRGMsR0FDSSxFQUFFLENBQUMsT0FBSCxDQUFXLFFBQVgsQ0FBb0IsZ0NBQXBCLENBREo7QUFFZCxjQUFBLGFBRmMsR0FFRSxFQUFFLENBQUMsT0FBSCxDQUFXLFFBQVgsQ0FBb0IsOEJBQXBCLENBRkY7O0FBQUEsa0JBR2YsZUFIZTtBQUFBO0FBQUE7QUFBQTs7QUFBQSxvQkFJYixJQUFJLEtBQUosQ0FBVSxzQ0FBVixDQUphOztBQUFBO0FBT2QsY0FBQSxRQVBjLEdBT0gsSUFBSSxrQkFBQSxDQUFBLFFBQUosQ0FBYSxlQUFiLENBUEc7QUFBQTtBQUFBLGdEQVFBLEVBQUUsQ0FBQyxPQUFILENBQVcsR0FBWCxDQUFlLHFCQUFmLEVBQXNDLENBQUMsUUFBRCxDQUF0QyxDQVJBOztBQUFBO0FBUWQsY0FBQSxLQVJjO0FBQUE7QUFBQSxnREFTQSxFQUFFLENBQUMsT0FBSCxDQUFXLEdBQVgsQ0FBZSxxQkFBZixFQUFzQyxJQUFJLHVCQUFBLENBQUEsYUFBSixFQUF0QyxDQVRBOztBQUFBO0FBU2QsY0FBQSxLQVRjO0FBVXBCLGNBQUEsT0FBTyxDQUFDLEdBQVIsQ0FBWSxrQkFBWixFQUErQixlQUEvQjtBQUdNLGNBQUEsTUFiYyxHQWFhLElBQUksZUFBQSxDQUFBLFlBQUosQ0FBZ0IsdUJBQUE7QUFDaEQsZ0JBQUEsS0FBSyxFQUFMLEtBRGdEO0FBRWhELGdCQUFBLElBQUksRUFBRSxhQUFBLENBQUEsVUFBQSxDQUFXLElBQVgsQ0FBZ0IsS0FBaEI7QUFGMEMsZUFBQSxFQUc3QyxhQUg2QyxDQUFoQixDQWJiO0FBbUJwQixjQUFBLEVBQUUsQ0FBQyxVQUFILENBQWMsT0FBZCxDQUFzQixpQkFBdEIsRUFBeUMsb0JBQUEsQ0FBQSxPQUFBLENBQW1CLE1BQW5CLENBQXpDO0FBbkJvQiwrQ0FvQmIsV0FwQmE7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFEYjtBQWhCa0IsQ0FBYixDQUFmIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQXBvbGxvQ29uc3VtZXIsIE11dGF0aW9uLCBRdWVyeSwgU3Vic2NyaXB0aW9uIH0gZnJvbSAncmVhY3QtYXBvbGxvJztcbmltcG9ydCB7IEJsdWVCYXNlLCBCb290T3B0aW9ucywgY3JlYXRlUGx1Z2luIH0gZnJvbSAnQGJsdWViYXNlL2NvcmUnO1xuXG5pbXBvcnQgeyBBcG9sbG9DbGllbnQgfSBmcm9tICdhcG9sbG8tY2xpZW50JztcbmltcG9ydCB7IEFwb2xsb0xpbmsgfSBmcm9tICdhcG9sbG8tbGluayc7XG5pbXBvcnQgeyBIdHRwTGluayB9IGZyb20gJ2Fwb2xsby1saW5rLWh0dHAnO1xuaW1wb3J0IHsgSW5NZW1vcnlDYWNoZSB9IGZyb20gJ2Fwb2xsby1jYWNoZS1pbm1lbW9yeSc7XG5pbXBvcnQgd2l0aEFwb2xsb1Byb3ZpZGVyIGZyb20gJy4vd2l0aEFwb2xsb1Byb3ZpZGVyJztcbmltcG9ydCBjb25zb2xlID0gcmVxdWlyZSgnY29uc29sZScpO1xuXG5leHBvcnQgZGVmYXVsdCBjcmVhdGVQbHVnaW4oe1xuXHRkZXNjcmlwdGlvbjogJ/CfjI0gQSBCbHVlQmFzZSBQbHVnaW4gdGhhdCBpbnRlZ3JhdGVzIEFwb2xsbyBHcmFwaFFMIENsaWVudCcsXG5cdGtleTogJ3BsdWdpbi1hcG9sbG8nLFxuXHRuYW1lOiAnQXBvbGxvIFBsdWdpbicsXG5cdHZlcnNpb246ICcxLjAuMCcsXG5cblx0Y29tcG9uZW50czoge1xuXHRcdEFwb2xsb0NvbnN1bWVyLFxuXHRcdEdyYXBocWxNdXRhdGlvbjogTXV0YXRpb24sXG5cdFx0R3JhcGhxbFF1ZXJ5OiBRdWVyeSxcblx0XHRHcmFwaHFsU3Vic2NyaXB0aW9uOiBTdWJzY3JpcHRpb25cblx0fSxcblx0ZGVmYXVsdENvbmZpZ3M6IHtcblx0XHQncGx1Z2luLmFwb2xsby5jbGllbnRPcHRpb25zJzoge30sXG5cdFx0J3BsdWdpbi5hcG9sbG8uaHR0cExpbmtPcHRpb25zJzoge31cblx0fSxcblx0ZmlsdGVyczoge1xuXHRcdCdibHVlYmFzZS5ib290LmVuZCc6IGFzeW5jIChib290T3B0aW9uczogQm9vdE9wdGlvbnMsIF9jdHg6IGFueSwgQkI6IEJsdWVCYXNlKSA9PiB7XG5cdFx0XHRjb25zdCBodHRwTGlua09wdGlvbnMgPSBCQi5Db25maWdzLmdldFZhbHVlKCdwbHVnaW5zLmFwb2xsby5odHRwTGlua09wdGlvbnMnKTtcblx0XHRcdGNvbnN0IGNsaWVudE9wdGlvbnMgPSBCQi5Db25maWdzLmdldFZhbHVlKCdwbHVnaW5zLmFwb2xsby5jbGllbnRPcHRpb25zJyk7XG5cdFx0XHRpZiAoIWh0dHBMaW5rT3B0aW9ucykge1xuXHRcdFx0XHR0aHJvdyBuZXcgRXJyb3IoJ0hUVFAgTGluayBVUkkgbm90IHByb3ZpZGVkIHRvIEFwb2xsbycpO1xuXHRcdFx0fVxuXG5cdFx0XHRjb25zdCBodHRwTGluayA9IG5ldyBIdHRwTGluayhodHRwTGlua09wdGlvbnMpO1xuXHRcdFx0Y29uc3QgbGlua3MgPSBhd2FpdCBCQi5GaWx0ZXJzLnJ1bigncGx1Z2luLmFwb2xsby5saW5rcycsIFtodHRwTGlua10pO1xuXHRcdFx0Y29uc3QgY2FjaGUgPSBhd2FpdCBCQi5GaWx0ZXJzLnJ1bigncGx1Z2luLmFwb2xsby5jYWNoZScsIG5ldyBJbk1lbW9yeUNhY2hlKCkpO1xuXHRcdFx0Y29uc29sZS5sb2coXCJjbGllbnRvcHRpb25zc3NzXCIsaHR0cExpbmtPcHRpb25zKTtcblxuXG5cdFx0XHRjb25zdCBjbGllbnQ6IEFwb2xsb0NsaWVudDx7fT4gPSBuZXcgQXBvbGxvQ2xpZW50KHtcblx0XHRcdFx0Y2FjaGUsXG5cdFx0XHRcdGxpbms6IEFwb2xsb0xpbmsuZnJvbShsaW5rcyksXG5cdFx0XHRcdC4uLmNsaWVudE9wdGlvbnNcblx0XHRcdH0pO1xuXG5cdFx0XHRCQi5Db21wb25lbnRzLmFkZEhvY3MoJ0JsdWVCYXNlQ29udGVudCcsIHdpdGhBcG9sbG9Qcm92aWRlcihjbGllbnQpKTtcblx0XHRcdHJldHVybiBib290T3B0aW9ucztcblx0XHR9LFxuXHR9XG59KTtcbiJdfQ==

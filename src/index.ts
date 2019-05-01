@@ -31,10 +31,16 @@ export default createPlugin({
 				throw new Error('HTTP Link URI not provided to Apollo');
 			}
 
+			console.log("httpLinkOptions",httpLinkOptions);
+
 			const httpLink = new HttpLink(httpLinkOptions);
+			console.log("link",httpLink);
+
 			const links = await BB.Filters.run('plugin.apollo.links', [httpLink]);
 			const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
 
+			console.log("clientoptionssss",httpLinkOptions);
+			
 			const client: ApolloClient<{}> = new ApolloClient({
 				cache,
 				link: ApolloLink.from(links),

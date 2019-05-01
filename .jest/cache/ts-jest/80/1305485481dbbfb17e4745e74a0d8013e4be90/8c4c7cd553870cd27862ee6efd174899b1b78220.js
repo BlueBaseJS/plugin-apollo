@@ -1,0 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class HttpLink {
+}
+exports.HttpLink = HttpLink;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2Fwb2xsby9wbHVnaW4tYXBvbGxvL19fbW9ja3NfXy9hcG9sbG8tbGluay1odHRwLnRzIiwibWFwcGluZ3MiOiI7O0FBQUEsTUFBYSxRQUFRO0NBRXBCO0FBRkQsNEJBRUMiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2Fwb2xsby9wbHVnaW4tYXBvbGxvL19fbW9ja3NfXy9hcG9sbG8tbGluay1odHRwLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjbGFzcyBIdHRwTGlua3tcbiAgICBcbn0iXSwidmVyc2lvbiI6M30=

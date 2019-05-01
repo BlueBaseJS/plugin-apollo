@@ -1,0 +1,17 @@
+44818ec81124dadda9599a82856e9e0e
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var HttpLink = function HttpLink() {
+  (0, _classCallCheck2.default)(this, HttpLink);
+};
+
+exports.HttpLink = HttpLink;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9hcG9sbG8vcGx1Z2luLWFwb2xsby9fX21vY2tzX18vYXBvbGxvLWxpbmstaHR0cC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0lBQWEsUTs7OztBQUFiLE9BQUEsQ0FBQSxRQUFBLEdBQUEsUUFBQSIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjbGFzcyBIdHRwTGlua3tcbiAgICBcbn0iXX0=

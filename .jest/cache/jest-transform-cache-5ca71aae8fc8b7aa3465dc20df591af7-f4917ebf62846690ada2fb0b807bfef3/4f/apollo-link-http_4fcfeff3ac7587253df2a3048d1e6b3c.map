@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/muzzamil/Documents/apollo/plugin-apollo/__mocks__/apollo-link-http.ts"],"names":[],"mappings":";;;;;;AAAa,OAAA,CAAA,MAAA,GAAS;AAAA,SAAO,IAAI,CAAC,EAAL,EAAP;AAAA,CAAT;;AAGb,OAAA,CAAA,OAAA,GAAe,OAAA,CAAA,MAAf","sourcesContent":["export const mockit = () =>  jest.fn();\n\n\nexport default mockit;\n"]}
