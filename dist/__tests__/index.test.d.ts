@@ -1,1 +1,1 @@
-export {};
+import 'cross-fetch/polyfill';

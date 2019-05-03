@@ -1,9 +1,0 @@
-cfcdbf522d9fc3198ba7236a0381c1b7
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var mock = jest.fn();
-exports.default = mock;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL211enphbWlsL0RvY3VtZW50cy9hcG9sbG8vcGx1Z2luLWFwb2xsby9fX21vY2tzX18vYXBvbGxvLWxpbmstaHR0cC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBLElBQU0sSUFBSSxHQUFHLElBQUksQ0FBQyxFQUFMLEVBQWI7QUFFQSxPQUFBLENBQUEsT0FBQSxHQUFlLElBQWYiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBtb2NrID0gamVzdC5mbigpXG5cbmV4cG9ydCBkZWZhdWx0IG1vY2s7Il19

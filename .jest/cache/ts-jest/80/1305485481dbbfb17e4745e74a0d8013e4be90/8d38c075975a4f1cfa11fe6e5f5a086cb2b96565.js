@@ -1,5 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.mockit = () => jest.fn();
-exports.default = exports.mockit;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2Fwb2xsby9wbHVnaW4tYXBvbGxvL19fbW9ja3NfXy9hcG9sbG8tbGluay1odHRwLnRzIiwibWFwcGluZ3MiOiI7O0FBQWEsUUFBQSxNQUFNLEdBQUcsR0FBRyxFQUFFLENBQUUsSUFBSSxDQUFDLEVBQUUsRUFBRSxDQUFDO0FBR3ZDLGtCQUFlLGNBQU0sQ0FBQyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIvaG9tZS9tdXp6YW1pbC9Eb2N1bWVudHMvYXBvbGxvL3BsdWdpbi1hcG9sbG8vX19tb2Nrc19fL2Fwb2xsby1saW5rLWh0dHAudHMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IG1vY2tpdCA9ICgpID0+ICBqZXN0LmZuKCk7XG5cblxuZXhwb3J0IGRlZmF1bHQgbW9ja2l0O1xuIl0sInZlcnNpb24iOjN9

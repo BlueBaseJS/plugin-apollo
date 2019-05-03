@@ -1,6 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
-    HttpLink: () => jest.mock('apollo-link-http')
-};
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL2hvbWUvbXV6emFtaWwvRG9jdW1lbnRzL2Fwb2xsby9wbHVnaW4tYXBvbGxvL19fbW9ja3NfXy9hcG9sbG8tbGluay1odHRwLnRzIiwibWFwcGluZ3MiOiI7O0FBQ0Esa0JBQWdCO0lBQ1osUUFBUSxFQUFFLEdBQUcsRUFBRSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsa0JBQWtCLENBQUM7Q0FDaEQsQ0FBQSIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIvaG9tZS9tdXp6YW1pbC9Eb2N1bWVudHMvYXBvbGxvL3BsdWdpbi1hcG9sbG8vX19tb2Nrc19fL2Fwb2xsby1saW5rLWh0dHAudHMiXSwic291cmNlc0NvbnRlbnQiOlsiXG5leHBvcnQgZGVmYXVsdCAge1xuICAgIEh0dHBMaW5rOiAoKSA9PiBqZXN0Lm1vY2soJ2Fwb2xsby1saW5rLWh0dHAnKVxufSJdLCJ2ZXJzaW9uIjozfQ==

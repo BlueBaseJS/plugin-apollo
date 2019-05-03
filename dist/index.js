@@ -20,8 +20,8 @@ exports.default = core_1.createPlugin({
         GraphqlSubscription: react_apollo_1.Subscription
     },
     defaultConfigs: {
-        'plugin.apollo.clientOptions': {},
-        'plugin.apollo.httpLinkOptions': {}
+        'plugin.apollo.httpLinkOptions': {},
+        'plugin.apollo.clientOptions': {}
     },
     filters: {
         'bluebase.boot.end': async (bootOptions, _ctx, BB) => {
@@ -30,12 +30,9 @@ exports.default = core_1.createPlugin({
             if (!httpLinkOptions) {
                 throw new Error('HTTP Link URI not provided to Apollo');
             }
-            console.log("httpLinkOptions", httpLinkOptions);
-            const httpLink = new apollo_link_http_1.HttpLink(httpLinkOptions);
-            console.log("link", httpLink);
+            const httpLink = apollo_link_http_1.createHttpLink(httpLinkOptions);
             const links = await BB.Filters.run('plugin.apollo.links', [httpLink]);
             const cache = await BB.Filters.run('plugin.apollo.cache', new apollo_cache_inmemory_1.InMemoryCache());
-            console.log("clientoptionssss", httpLinkOptions);
             const client = new apollo_client_1.ApolloClient(Object.assign({ cache, link: apollo_link_1.ApolloLink.from(links) }, clientOptions));
             BB.Components.addHocs('BlueBaseContent', withApolloProvider_1.default(client));
             return bootOptions;

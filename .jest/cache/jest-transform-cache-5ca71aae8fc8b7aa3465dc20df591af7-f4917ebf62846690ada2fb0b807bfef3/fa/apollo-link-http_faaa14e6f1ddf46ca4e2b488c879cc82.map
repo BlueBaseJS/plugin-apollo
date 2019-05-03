@@ -1,1 +1,0 @@
-{"version":3,"sources":["/home/muzzamil/Documents/apollo/plugin-apollo/__mocks__/apollo-link-http.ts"],"names":[],"mappings":";;;;;AACA,OAAA,CAAA,OAAA,GAAgB;AACZ,EAAA,QAAQ,EAAE;AAAA,WAAM,IAAI,CAAC,EAAL,EAAN;AAAA;AADE,CAAhB","sourcesContent":["\nexport default  {\n    HttpLink: () => jest.fn()\n}"]}

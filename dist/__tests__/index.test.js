@@ -3,39 +3,38 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const core_1 = require("@bluebase/core");
 const index_1 = tslib_1.__importDefault(require("../index"));
-// import { Text } from 'react-native';
-const withApolloProvider_1 = tslib_1.__importDefault(require("../withApolloProvider"));
-// import React from 'react';
-// import { mount } from 'enzyme';
-// import { waitForElement } from 'enzyme-async-helpers';
-const apollo_link_http_1 = tslib_1.__importDefault(require("apollo-link-http"));
-// import { sample } from '../__mocks__/index'
-// import { waitForElement } from 'enzyme-async-helpers';
-// const CustomText = () => <Text>Everything is ok!</Text>;
-// import HttpLink from 'apollo-link-http';
-//working and testing
+const unfetch_1 = tslib_1.__importDefault(require("unfetch"));
+const enzyme_async_helpers_1 = require("enzyme-async-helpers");
+require("cross-fetch/polyfill");
+const App_1 = tslib_1.__importDefault(require("../App"));
+const React = tslib_1.__importStar(require("react"));
+const enzyme_1 = require("enzyme");
+// working and tested
 test('Plugin correctly registered', async () => {
     const BB = new core_1.BlueBase();
     await BB.Plugins.register(index_1.default);
-    // console.log('imported{}===>',{HttpLink})
-    // console.log('imported===>',HttpLink)
     expect(BB.Plugins.has('plugin-apollo')).toBeTruthy();
-});
-let client;
-test('Plugin apolloProvider working', async () => {
-    withApolloProvider_1.default(client);
 });
 //working httplink options
 test('Test with Apollo Config', async () => {
     const BB = new core_1.BlueBase();
     await BB.Plugins.register(index_1.default);
-    await BB.Configs.setValue('plugins.apollo.httpLinkOptions', { uri: 'http://graphql' });
-    BB.boot();
-    console.log('Plugins====>', BB.Configs.getValue('plugins.apollo.httpLinkOptions'));
+    await BB.Configs.setValue('plugins.apollo.httpLinkOptions', {
+        httpLinkOptions: { uri: 'http://graphql', fetch: unfetch_1.default },
+    });
+    await BB.boot();
+    const component = enzyme_1.mount(React.createElement(core_1.BlueBaseApp, { configs: {
+            'plugins.apollo.httpLinkOptions': {
+                httpLinkOptions: { uri: 'http://graphql', fetch: unfetch_1.default },
+            },
+        }, plugins: [index_1.default] },
+        React.createElement(App_1.default, null)));
+    await enzyme_async_helpers_1.waitForElement(component, App_1.default);
+    // expect(component).toMatchSnapshot();
     const httpLinkOptions = BB.Configs.getValue('plugins.apollo.httpLinkOptions');
-    expect(httpLinkOptions).toEqual({ uri: 'http://graphql' });
+    expect(httpLinkOptions).toEqual({ httpLinkOptions: { uri: 'http://graphql', fetch: unfetch_1.default } });
 });
-//working and testing
+// working and tested
 test('Plugin should throw error if httpLinkOptions config is not given', async () => {
     const BB = new core_1.BlueBase();
     await BB.Plugins.register(index_1.default);
@@ -48,30 +47,3 @@ test('Plugin should throw error if httpLinkOptions config is not given', async (
     }
     expect(message).toBe('HTTP Link URI not provided to Apollo');
 });
-//mocking + apollo links   //not working
-test('Mocking and apollo links', async () => {
-    const BB = new core_1.BlueBase();
-    // const {HttpLink}  = jest.mock('apollo-link-http');
-    const httpLink = new apollo_link_http_1.default.HttpLink;
-    console.log('original===>', httpLink);
-    await BB.Filters.run("bluebase.boot.end", [httpLink]);
-    //  await BB.Filters.run("plugin.apollo.links",{HttpLink});
-    //expect(HttpLink).toBeCalled();
-});
-// //checking apollo cache
-// test('Mocking and apollo cache', async () => {
-// 	const BB = new BlueBase();
-// 	const {HttpLink}:any  = jest.mock('apollo-link-http');
-// 	// console.log('original===>',HttpLink)
-// 	//await BB.Filters.run("bluebase.boot.end",{HttpLink});
-// 	  await BB.Filters.run("plugin.apollo.cache",{HttpLink});
-// 	expect(HttpLink).toBeCalled();
-// });
-// class MockClass {
-// 	constructor(public input) {
-// 	}
-// }
-// instanceof.input === 
-// mise(resolve => resolve()));
-// 	const wrapper = mount(
-// 		<BlueBaseApp plugins={[Plugin]} configs={{ 'plugins.apollo.httpLinkOptions': { uri: 'www.g
