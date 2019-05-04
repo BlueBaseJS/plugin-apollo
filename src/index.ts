@@ -26,7 +26,6 @@ export default createPlugin({
 
 	filters: {
 		'bluebase.boot.end': async (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
-
 			const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
 			const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
