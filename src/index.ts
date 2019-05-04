@@ -21,14 +21,14 @@ export default createPlugin({
 
 	defaultConfigs: {
 		'plugin.apollo.clientOptions': {},
-		'plugin.apollo.httpLinkOptions': {},
+		'plugin.apollo.httpLinkOptions': null,
 	},
 
 	filters: {
 		'bluebase.boot.end': async (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
 
-			const httpLinkOptions = BB.Configs.getValue('plugins.apollo.httpLinkOptions');
-			const clientOptions = BB.Configs.getValue('plugins.apollo.clientOptions');
+			const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
+			const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
 			if (!httpLinkOptions) {
 				throw new Error('HTTP Link URI not provided to Apollo');
