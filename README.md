@@ -23,9 +23,8 @@
 
 | 🌏 Web | 🖥 Electron | 📱 React Native |
 | :----: | :---------: | :-------------: |
-|    ✅   |      ✅      |        ❌        |
+|    ✅   |      ✅      |        ✅        |
 
 ## Docs
 
--   [Storybook](https://BlueBaseJS.github.io/plugin-apollo/storybook/)
 -   [API Docs](https://BlueBaseJS.github.io/plugin-apollo/)
