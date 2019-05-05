@@ -21,7 +21,7 @@ export default createPlugin({
 
 	defaultConfigs: {
 		'plugin.apollo.clientOptions': {},
-		'plugin.apollo.httpLinkOptions': null,
+		'plugin.apollo.httpLinkOptions': {},
 	},
 
 	filters: {
@@ -29,9 +29,9 @@ export default createPlugin({
 			const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
 			const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
-			if (!httpLinkOptions) {
-				throw new Error('HTTP Link URI not provided to Apollo');
-			}
+			// if (!httpLinkOptions) {
+			// 	throw new Error('HTTP Link URI not provided to Apollo');
+			// }
 
 			const httpLink = createHttpLink(httpLinkOptions);
 			const links = await BB.Filters.run('plugin.apollo.links', [httpLink]);
