@@ -897,13 +897,14 @@
     tslint-react "^3.6.0"
     typescript "^3.1.4"
 
-"@bluebase/core@^4.0.0-aplha.26":
-  version "4.0.0-aplha.26"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.26.tgz#5660811290dc6721925b26febf5d6f34e1073ccc"
-  integrity sha512-poGAilzoUB9MSHZi7WcyTOvWL4h5lUTw/syaOt9vLyzZI7d/HvC6gUXs6V/zv+UmqV/0PO4VFO2xkU9niAX3xw==
+"@bluebase/core@^4.0.0-alpha.42":
+  version "4.0.0-alpha.42"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-alpha.42.tgz#99c886cffb3a5908fd101a487e1f6200f74ac6ed"
+  integrity sha512-/S15Q3kNKxfZD/b9idAV7h42EQ9NXziL+1+u6IOo32b8wkeC2WCpR0JmuSkjMSN/Rl+jH0a35z1fh3M8zUBh8w==
   dependencies:
-    deepmerge "^3.2.0"
+    deepmerge "^4.0.0"
     hoist-non-react-statics "^3.3.0"
+    is-plain-object "^3.0.0"
     lodash.flowright "^3.5.0"
     lodash.isboolean "^3.0.3"
     lodash.isfunction "^3.0.9"
@@ -912,7 +913,7 @@
     lodash.kebabcase "^4.1.1"
     react-loadable "^5.5.0"
     rtl-detect "^1.0.2"
-    tslib "^1.9.3"
+    tslib "^1.10.0"
 
 "@bluebase/storybook-addon@^3.0.0":
   version "3.0.0"
@@ -3658,6 +3659,11 @@ deepmerge@*, deepmerge@^3.2.0:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.2.0.tgz#58ef463a57c08d376547f8869fdc5bcee957f44e"
   integrity sha512-6+LuZGU7QCNUnAJyX8cIrlzoEgggTM6B7mm+znKOX4t5ltluT9KLjN6g61ECMS0LTsLW7yDpNoxhix5FZcrIow==
 
+deepmerge@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.0.0.tgz#3e3110ca29205f120d7cb064960a39c3d2087c09"
+  integrity sha512-YZ1rOP5+kHor4hMAH+HRQnBQHg+wvS1un1hAOuIcxcBy0hzcUf6Jg2a1w65kpoOUnurOfZbERwjI1TfZxNjcww==
+
 default-require-extensions@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/default-require-extensions/-/default-require-extensions-2.0.0.tgz#f5f8fbb18a7d6d50b21f641f649ebb522cfe24f7"
@@ -5880,6 +5886,13 @@ is-plain-object@^2.0.1, is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-plain-object@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-3.0.0.tgz#47bfc5da1b5d50d64110806c199359482e75a928"
+  integrity sha512-tZIpofR+P05k8Aocp7UI/2UTa9lTJSebCXpFFoR9aibpokDj/uXBsJ8luUu0tTVYKkMU6URDUuOfJZ7koewXvg==
+  dependencies:
+    isobject "^4.0.0"
+
 is-posix-bracket@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
@@ -6009,6 +6022,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
+
+isobject@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/isobject/-/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
+  integrity sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
 
 isomorphic-fetch@^2.1.1:
   version "2.2.1"
@@ -11344,6 +11362,11 @@ tslib@1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
   integrity sha512-f/qGG2tUkrISBlQZEjEqoZ3B2+npJjIf04H1wuAv9iA8i04Icp+61KRXxFdha22670NJopsZCIjhC3SnjPRKrQ==
+
+tslib@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.9.3"

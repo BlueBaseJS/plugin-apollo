@@ -1,5 +1,6 @@
 import { ApolloConsumer, Mutation, Query, Subscription } from 'react-apollo';
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
+
 import { ApolloClient } from 'apollo-client';
 import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -29,10 +30,6 @@ export default createPlugin({
 			const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
 			const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
-			// if (!httpLinkOptions) {
-			// 	throw new Error('HTTP Link URI not provided to Apollo');
-			// }
-
 			const httpLink = createHttpLink(httpLinkOptions);
 			const links = await BB.Filters.run('plugin.apollo.links', [httpLink]);
 			const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
@@ -44,6 +41,15 @@ export default createPlugin({
 			});
 
 			BB.Components.addHocs('BlueBaseContent', withApolloProvider(client));
+
+			BB.Filters.register({
+				event: 'bluebase.reset',
+				key: 'apollo-reset',
+				value: async () => {
+					await client.clearStore();
+				},
+			});
+
 			return bootOptions;
 		},
 	},
