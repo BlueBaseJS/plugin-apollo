@@ -45,6 +45,7 @@ export default createPlugin({
 			BB.Filters.register({
 				event: 'bluebase.reset',
 				key: 'apollo-reset',
+				priority: 50,
 				value: async () => {
 					await client.clearStore();
 				},
