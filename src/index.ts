@@ -7,6 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import withApolloProvider from './withApolloProvider';
 
+let client: ApolloClient<{}>;
 export default createPlugin({
 	description: '🌍 A BlueBase Plugin that integrates Apollo GraphQL Client',
 	key: 'plugin-apollo',
@@ -33,12 +34,15 @@ export default createPlugin({
 			const httpLink = createHttpLink(httpLinkOptions);
 			const links = await BB.Filters.run('plugin.apollo.links', [httpLink]);
 			const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
-
-			const client: ApolloClient<{}> = new ApolloClient({
-				cache,
-				link: ApolloLink.from(links),
-				...clientOptions,
-			});
+			// We Use global `client`  thats why we check if client create then ignore
+			if (!client) {
+				client = new ApolloClient({
+					cache,
+					link: ApolloLink.from(links),
+					...clientOptions,
+				});
+				await BB.Filters.run('plugin.apollo.client', client);
+			}
 
 			BB.Components.addHocs('BlueBaseContent', withApolloProvider(client));
 
