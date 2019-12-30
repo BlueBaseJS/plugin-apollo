@@ -2,12 +2,12 @@ import { ApolloConsumer, Mutation, Query, Subscription } from 'react-apollo';
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 
 import { ApolloClient } from 'apollo-client';
-import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import withApolloProvider from './withApolloProvider';
 
 let client: ApolloClient<{}>;
+
 export default createPlugin({
 	description: '🌍 A BlueBase Plugin that integrates Apollo GraphQL Client',
 	key: 'plugin-apollo',
@@ -27,35 +27,38 @@ export default createPlugin({
 	},
 
 	filters: {
-		'bluebase.boot.end': async (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
-			const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
-			const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
+		'bluebase.boot.end': {
+			key: 'apollo-register',
+			value: async (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
+				if (!client) {
+					const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
+					const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
-			const httpLink = createHttpLink(httpLinkOptions);
-			const links = await BB.Filters.run('plugin.apollo.links', [httpLink]);
-			const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
-			// We Use global `client`  thats why we check if client create then ignore
-			if (!client) {
-				client = new ApolloClient({
-					cache,
-					link: ApolloLink.from(links),
-					...clientOptions,
+					const httpLink = createHttpLink(httpLinkOptions);
+					const link = await BB.Filters.run('plugin.apollo.link', httpLink);
+					const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
+
+					client = new ApolloClient({
+						cache,
+						link,
+						...clientOptions,
+					});
+					await BB.Filters.run('plugin.apollo.client', client);
+				}
+
+				BB.Components.addHocs('BlueBaseContent', withApolloProvider(client));
+
+				BB.Filters.register({
+					event: 'bluebase.reset',
+					key: 'apollo-reset',
+					priority: 50,
+					value: async () => {
+						await client.clearStore();
+					},
 				});
-				await BB.Filters.run('plugin.apollo.client', client);
-			}
 
-			BB.Components.addHocs('BlueBaseContent', withApolloProvider(client));
-
-			BB.Filters.register({
-				event: 'bluebase.reset',
-				key: 'apollo-reset',
-				priority: 50,
-				value: async () => {
-					await client.clearStore();
-				},
-			});
-
-			return bootOptions;
+				return bootOptions;
+			},
 		},
 	},
 });
