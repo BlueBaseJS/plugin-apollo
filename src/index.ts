@@ -2,7 +2,6 @@ import { ApolloConsumer, Mutation, Query, Subscription } from 'react-apollo';
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 
 import { ApolloClient } from 'apollo-client';
-import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import withApolloProvider from './withApolloProvider';
