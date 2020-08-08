@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { ApolloClient } from 'apollo-client';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloClient, ApolloProvider } from '@apollo/client';
 
 export default (client: ApolloClient<{}>) => (App: React.ComponentType) => (props: any) => {
 	return (
