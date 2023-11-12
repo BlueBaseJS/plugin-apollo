@@ -1,3 +1,9 @@
+# [5.0.0-alpha.4](https://github.com/BlueBaseJS/plugin-apollo/compare/v5.0.0-alpha.3...v5.0.0-alpha.4) (2023-11-12)
+
+### Bug Fixes
+
+-   Fixed import path ([f4a28fe](https://github.com/BlueBaseJS/plugin-apollo/commit/f4a28fe1abf2e1e17df4b9adf1885e12afb4aca0))
+
 # [5.0.0-alpha.3](https://github.com/BlueBaseJS/plugin-apollo/compare/v5.0.0-alpha.2...v5.0.0-alpha.3) (2023-11-12)
 
 ### Bug Fixes
