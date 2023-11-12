@@ -76,6 +76,7 @@
     "@bluebase/code-standards": "^2.23.0",
     "@bluebase/core": "^8.2.0",
     "@bluebase/storybook-addon": "^3.0.0",
+    "@types/apollo-upload-client": "^17.0.5",
     "@types/enzyme": "^3.9.0",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/enzyme-async-helpers": "^0.9.1",
