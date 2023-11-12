@@ -1,3 +1,9 @@
+# [5.0.0-alpha.3](https://github.com/BlueBaseJS/plugin-apollo/compare/v5.0.0-alpha.2...v5.0.0-alpha.3) (2023-11-12)
+
+### Bug Fixes
+
+-   Reverted to the same version as master ([62284bf](https://github.com/BlueBaseJS/plugin-apollo/commit/62284bf3c3a9dbb51284494995efc1f0c5e6c129))
+
 # [5.0.0-alpha.2](https://github.com/BlueBaseJS/plugin-apollo/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2023-11-12)
 
 ### Bug Fixes
