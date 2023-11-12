@@ -1,3 +1,9 @@
+# [5.0.0-alpha.2](https://github.com/BlueBaseJS/plugin-apollo/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2023-11-12)
+
+### Bug Fixes
+
+-   Fixed version ([eeb0fba](https://github.com/BlueBaseJS/plugin-apollo/commit/eeb0fba9fac35a1c15b8639e95ab489c9bdf352b))
+
 # [5.0.0-alpha.1](https://github.com/BlueBaseJS/plugin-apollo/compare/v4.1.0...v5.0.0-alpha.1) (2023-11-12)
 
 ### Features

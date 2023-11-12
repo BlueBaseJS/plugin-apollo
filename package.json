@@ -2,7 +2,7 @@
   "name": "@bluebase/plugin-apollo",
   "description": "🌍 A BlueBase Plugin that integrates Apollo GraphQL Client",
   "author": "BlueEast Team <code@blueeast.com>",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.js",
