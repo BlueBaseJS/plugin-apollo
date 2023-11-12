@@ -3,6 +3,7 @@ import { Mutation, Query, Subscription } from '@apollo/client/react/components';
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 
 import withApolloProvider from './withApolloProvider';
+import { VERSION } from './version';
 
 const { createUploadLink } = require('apollo-upload-client');
 
@@ -12,7 +13,7 @@ export default createPlugin({
 	description: '🌍 A BlueBase Plugin that integrates Apollo GraphQL Client',
 	key: 'plugin-apollo',
 	name: 'Apollo Plugin',
-	version: '1.0.0',
+	version: VERSION,
 
 	components: {
 		ApolloConsumer,
