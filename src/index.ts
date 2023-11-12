@@ -1,8 +1,9 @@
-import { ApolloClient, ApolloConsumer, InMemoryCache, createHttpLink } from '@apollo/client';
+import { ApolloClient, ApolloConsumer, InMemoryCache } from '@apollo/client';
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 import { Mutation, Query, Subscription } from '@apollo/client/react/components';
-
 import withApolloProvider from './withApolloProvider';
+
+const { createUploadLink } = require('apollo-upload-client')
 
 let client: ApolloClient<{}>;
 
@@ -32,7 +33,7 @@ export default createPlugin({
 					const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
 					const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
-					const httpLink = createHttpLink(httpLinkOptions);
+					const httpLink = createUploadLink(httpLinkOptions);
 					const link = await BB.Filters.run('plugin.apollo.link', httpLink);
 					const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
 
