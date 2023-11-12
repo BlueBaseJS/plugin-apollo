@@ -1,9 +1,10 @@
 import { ApolloClient, ApolloConsumer, InMemoryCache } from '@apollo/client';
-import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 import { Mutation, Query, Subscription } from '@apollo/client/react/components';
+import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
+
 import withApolloProvider from './withApolloProvider';
 
-const { createUploadLink } = require('apollo-upload-client')
+const { createUploadLink } = require('apollo-upload-client');
 
 let client: ApolloClient<{}>;
 

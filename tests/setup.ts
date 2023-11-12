@@ -1,7 +1,8 @@
 import 'jest-enzyme';
 import 'react-native';
-import Adapter from 'enzyme-adapter-react-16';
+
 import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 /**
  * Set up DOM in node.js environment for Enzyme to mount to

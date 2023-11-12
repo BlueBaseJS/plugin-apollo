@@ -28,4 +28,3 @@
 ## Docs
 
 -   [API Docs](https://BlueBaseJS.github.io/plugin-apollo/)
-
