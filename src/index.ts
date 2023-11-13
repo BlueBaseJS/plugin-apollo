@@ -1,7 +1,9 @@
-import { ApolloClient, ApolloConsumer, InMemoryCache, createHttpLink } from '@apollo/client';
-import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
+import { ApolloClient, ApolloConsumer, InMemoryCache } from '@apollo/client';
 import { Mutation, Query, Subscription } from '@apollo/client/react/components';
+import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
+import createUploadLink from 'apollo-upload-client/createUploadLink.mjs';
 
+import { VERSION } from './version';
 import withApolloProvider from './withApolloProvider';
 
 let client: ApolloClient<{}>;
@@ -10,7 +12,7 @@ export default createPlugin({
 	description: '🌍 A BlueBase Plugin that integrates Apollo GraphQL Client',
 	key: 'plugin-apollo',
 	name: 'Apollo Plugin',
-	version: '1.0.0',
+	version: VERSION,
 
 	components: {
 		ApolloConsumer,
@@ -32,7 +34,7 @@ export default createPlugin({
 					const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
 					const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
-					const httpLink = createHttpLink(httpLinkOptions);
+					const httpLink = createUploadLink(httpLinkOptions);
 					const link = await BB.Filters.run('plugin.apollo.link', httpLink);
 					const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
 
