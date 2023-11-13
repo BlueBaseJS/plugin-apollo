@@ -1,3 +1,9 @@
+# [4.2.0](https://github.com/BlueBaseJS/plugin-apollo/compare/v4.1.0...v4.2.0) (2023-11-13)
+
+### Features
+
+-   Replaced HttpLink with UploadLink to support file uploads ([#207](https://github.com/BlueBaseJS/plugin-apollo/issues/207)) ([b01fc59](https://github.com/BlueBaseJS/plugin-apollo/commit/b01fc592a32ae66c4704f33022e49a6a8e86c709))
+
 # [5.0.0-alpha.4](https://github.com/BlueBaseJS/plugin-apollo/compare/v5.0.0-alpha.3...v5.0.0-alpha.4) (2023-11-12)
 
 ### Bug Fixes
