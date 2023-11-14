@@ -3,6 +3,7 @@ import { Mutation, Query, Subscription } from '@apollo/client/react/components';
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 import createUploadLink from 'apollo-upload-client/createUploadLink.mjs';
 
+import { isExtractableFile } from './isExtractableFile';
 import { VERSION } from './version';
 import withApolloProvider from './withApolloProvider';
 
@@ -34,7 +35,10 @@ export default createPlugin({
 					const httpLinkOptions = BB.Configs.getValue('plugin.apollo.httpLinkOptions');
 					const clientOptions = BB.Configs.getValue('plugin.apollo.clientOptions');
 
-					const httpLink = createUploadLink(httpLinkOptions);
+					const httpLink = createUploadLink({
+						isExtractableFile,
+						...httpLinkOptions,
+					});
 					const link = await BB.Filters.run('plugin.apollo.link', httpLink);
 					const cache = await BB.Filters.run('plugin.apollo.cache', new InMemoryCache());
 
