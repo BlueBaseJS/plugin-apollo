@@ -1,3 +1,9 @@
+## [4.2.1](https://github.com/BlueBaseJS/plugin-apollo/compare/v4.2.0...v4.2.1) (2023-11-14)
+
+### Bug Fixes
+
+-   Support for react-native file uploads ([8c80cf1](https://github.com/BlueBaseJS/plugin-apollo/commit/8c80cf16655535d1d5d467dcaea875e8aff43205))
+
 # [4.2.0](https://github.com/BlueBaseJS/plugin-apollo/compare/v4.1.0...v4.2.0) (2023-11-13)
 
 ### Features
